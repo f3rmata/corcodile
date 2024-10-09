@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake
+inherit cmake xdg xdg-utils
 
 DESCRIPTION="An event management system for SAST."
 HOMEPAGE="https://evento.sast.fun"
@@ -23,15 +23,21 @@ KEYWORDS="~amd64"
 
 RESTRICT="network-sandbox"
 DEPEND="
-sys-devel/gcc:14
-dev-qt/qtbase:6[network,opengl,widgets]
-sys-devel/gettext
-app-crypt/libsecret
-dev-libs/spdlog
->=dev-libs/boost-1.85
-dev-libs/openssl
-dev-cpp/nlohmann_json
-sys-libs/liburing[static-libs]
+	sys-devel/gcc:14
+	dev-qt/qtbase:6[network,opengl,widgets]
+	sys-devel/gettext
+	app-crypt/libsecret
+	dev-libs/spdlog::corcodile
+	>=dev-libs/boost-1.85
+	dev-libs/openssl
+	dev-cpp/nlohmann_json
+	sys-libs/liburing[static-libs]
+	dev-build/autoconf
+	dev-build/automake
+	dev-build/autoconf-archive
+	x11-libs/libxcb
+	x11-libs/libXrender
+	x11-libs/libxkbcommon
 "
 RDEPEND="${DEPEND}"
 BDEPEND="

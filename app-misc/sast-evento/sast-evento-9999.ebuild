@@ -27,7 +27,7 @@ DEPEND="
 	dev-qt/qtbase:6[network,opengl,widgets]
 	sys-devel/gettext
 	app-crypt/libsecret
-	dev-libs/spdlog::corcodile
+	dev-libs/spdlog
 	>=dev-libs/boost-1.85
 	dev-libs/openssl
 	dev-cpp/nlohmann_json

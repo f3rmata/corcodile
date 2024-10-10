@@ -31,6 +31,7 @@ DEPEND="
 	>=dev-libs/boost-1.85
 	dev-libs/openssl
 	dev-cpp/nlohmann_json
+	dev-cpp/tomlplusplus
 	sys-libs/liburing[static-libs]
 	dev-build/autoconf
 	dev-build/automake
@@ -38,17 +39,20 @@ DEPEND="
 	x11-libs/libxcb
 	x11-libs/libXrender
 	x11-libs/libxkbcommon
-"
+	media-fonts/noto[cjk]"
 RDEPEND="${DEPEND}"
 BDEPEND="
-virtual/pkgconfig
-"
+	virtual/pkgconfig"
 
 src_configure() {
 	local mycmakeargs=(
 		-DSLINT_FEATURE_RENDERER_FEMTOVG=OFF
 		-DSLINT_FEATURE_RENDERER_SKIA=ON
 	)
+
+	CC=/usr/x86_64-pc-linux-gnu/gcc-bin/14/gcc
+	CXX=/usr/x86_64-pc-linux-gnu/gcc-bin/14/g++
+	# Using gcc-14 to avoid Internal Compiler Error.
 
 	sed -i "0,/beast/s///;0,/process/s///" CMakeLists.txt 3rdpart/sast-link-cxx-sdk/CMakeLists.txt || die
 	sed -i "/Boost::beast/d;/Boost::process/d" 3rdpart/sast-link-cxx-sdk/CMakeLists.txt src/CMakeLists.txt || die

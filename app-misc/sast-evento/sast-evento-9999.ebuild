@@ -19,7 +19,6 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
 
 RESTRICT="network-sandbox"
 DEPEND="
@@ -57,4 +56,8 @@ src_configure() {
 	sed -i "0,/beast/s///;0,/process/s///" CMakeLists.txt 3rdpart/sast-link-cxx-sdk/CMakeLists.txt || die
 	sed -i "/Boost::beast/d;/Boost::process/d" 3rdpart/sast-link-cxx-sdk/CMakeLists.txt src/CMakeLists.txt || die
 	cmake_src_configure
+}
+
+pkg_postinst() {
+	xdg_pkg_postinst
 }

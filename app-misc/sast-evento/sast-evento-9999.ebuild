@@ -27,7 +27,7 @@ DEPEND="
 	sys-devel/gettext
 	app-crypt/libsecret
 	dev-libs/spdlog
-	>=dev-libs/boost-1.85
+	>=dev-libs/boost-1.84
 	dev-libs/openssl
 	dev-cpp/nlohmann_json
 	dev-cpp/tomlplusplus

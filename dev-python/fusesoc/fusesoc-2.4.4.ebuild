@@ -26,5 +26,4 @@ RDEPEND="
 	dev-python/argcomplete
 "
 
-BDEPEND="
-"
+distutils_enable_tests pytest

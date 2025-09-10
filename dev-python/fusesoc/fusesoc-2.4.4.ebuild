@@ -18,6 +18,13 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
+	>=dev-python/edalize-0.4.1
+	>=dev-python/pyparsing-2.3.1
+	>=dev-python/pyyaml-6.0
+	>=dev-python/simplesat-0.9.1
+	dev-python/fastjsonschema
+	dev-python/argcomplete
 "
+
 BDEPEND="
 "

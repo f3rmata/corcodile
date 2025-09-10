@@ -9,16 +9,15 @@ PYTHON_COMPAT=( python3_{12..13} )
 inherit distutils-r1 pypi
 
 DESCRIPTION="
-	Self-contained library to deal with metadata in Enthought-specific egg and runtime archives.
+	Library for interfacing EDA tools such as simulators, linters or synthesis tools, using a common interface.
 "
 HOMEPAGE="
-	https://github.com/enthought/okonomiyaki
-	https://pypi.org/project/okonomiyaki/
+	https://github.com/olofk/edalize/
+	https://pypi.org/project/edalize/
 "
 
-LICENSE="BSD"
+LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
 distutils_enable_tests pytest
-

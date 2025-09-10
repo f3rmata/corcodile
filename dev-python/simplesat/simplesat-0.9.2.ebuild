@@ -9,16 +9,22 @@ PYTHON_COMPAT=( python3_{12..13} )
 inherit distutils-r1 pypi
 
 DESCRIPTION="
-	Self-contained library to deal with metadata in Enthought-specific egg and runtime archives.
+	Prototype for SAT-based dependency handling.
 "
 HOMEPAGE="
-	https://github.com/enthought/okonomiyaki
-	https://pypi.org/project/okonomiyaki/
+	https://github.com/enthought/sat-solver
+	https://pypi.org/project/simplesat/
 "
 
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 
-distutils_enable_tests pytest
+RDEPEND="
+	>=dev-python/attrs-17.4.0
+	>=dev-python/okonomiyaki-0.16.6
+	>=dev-python/six-1.10.0
+	dev-python/mock
+"
 
+distutils_enable_tests pytest

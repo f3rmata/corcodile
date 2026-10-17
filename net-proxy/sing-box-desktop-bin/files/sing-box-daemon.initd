@@ -1,0 +1,20 @@
+#!/sbin/openrc-run
+# Copyright 2026 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+description="sing-box for Desktop daemon"
+supervisor="supervise-daemon"
+command="/opt/sing-box/resources/daemon/sing-box-daemon"
+command_args="run --working-directory /var/lib/sing-box-daemon --socket /run/sing-box.socket"
+pidfile="/run/${RC_SVCNAME}.pid"
+respawn_delay=5
+umask=0077
+
+depend() {
+	need dbus
+	after net
+}
+
+start_pre() {
+	checkpath --directory --mode 0700 --owner root:root /var/lib/sing-box-daemon
+}

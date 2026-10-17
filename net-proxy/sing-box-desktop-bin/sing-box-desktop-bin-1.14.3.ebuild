@@ -17,7 +17,6 @@ LICENSE="GPL-3+ BSD LGPL-2.1+ MIT OFL-1.1"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 IUSE="suid"
-REQUIRED_USE="elibc_glibc"
 RESTRICT="strip"
 
 RDEPEND="
@@ -55,6 +54,10 @@ RDEPEND="
 "
 
 QA_PREBUILT="opt/sing-box/*"
+
+pkg_pretend() {
+	use elibc_glibc || die "The upstream binaries require glibc; musl is not supported."
+}
 
 src_prepare() {
 	default
